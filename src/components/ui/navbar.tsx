@@ -1,6 +1,7 @@
 "use client"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { ChefHat } from "lucide-react"
 import React from "react";
 import { useAuth } from "@/context/AuthContext"
@@ -29,7 +30,14 @@ const Navbar: React.FC = () => {
         </nav>
         <div className="flex items-center gap-4">
           {user ? (
-            <Button onClick={() => logout()} size="sm">Sign out</Button>
+            <>
+              <Button onClick={() => logout()} size="sm">Sign out</Button>
+              <Avatar>
+                <AvatarImage src={user.photoURL || ''} alt="user image" />
+                <AvatarFallback>{user.displayName ? user.displayName[0] : ''}</AvatarFallback>
+              </Avatar>
+            </>
+
           ) : (
             <Button onClick={() => loginWithGoogle()} variant="outline" size="sm">
               Log in
