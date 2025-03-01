@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
-import { ChefHat, MapPin, Utensils, ThumbsUp, Sparkles } from "lucide-react"
+import { ChefHat} from "lucide-react"
 
 import React from "react";
 const Navbar: React.FC = () => {
