@@ -1,7 +1,6 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { ChefHat} from "lucide-react"
-
 import React from "react";
 const Navbar: React.FC = () => {
     return(
@@ -12,7 +11,7 @@ const Navbar: React.FC = () => {
             <span className="text-xl font-bold">FeastFinder</span>
           </div>
           <nav className="hidden md:flex items-center gap-6 px-4">
-            <Link href="#features" className="text-sm font-medium hover:text-primary">
+            <Link href="/InAndOutPage" className="text-sm font-medium hover:text-primary">
               In And Out
             </Link>
             <Link href="#how-it-works" className="text-sm font-medium hover:text-primary">
