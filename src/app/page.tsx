@@ -50,7 +50,7 @@ export default function LandingPage() {
                   </h1>
                   <p className="max-w-[600px] text-muted-foreground md:text-xl">
                     FoodFinder AI transforms your available ingredients into creative recipes and suggests local
-                    restaurants when you'd rather eat out.
+                    restaurants when you&apos;d rather eat out.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
@@ -119,7 +119,7 @@ export default function LandingPage() {
                   <MapPin className="h-10 w-10 text-primary mb-2" />
                   <CardTitle>Local Restaurant Finder</CardTitle>
                   <CardDescription>
-                    Discover local dining options that match your cravings when you don't feel like cooking.
+                    Discover local dining options that match your cravings when you don&apos;t feel like cooking.
                   </CardDescription>
                 </CardHeader>
                 <CardContent>
