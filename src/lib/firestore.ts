@@ -1,6 +1,7 @@
 import { User } from "firebase/auth";
 import { db } from "./firebase";
 import { doc, setDoc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
+import { Restaurant, Recipe, Ingredient } from "@/lib/types";
 
 
 /**
@@ -22,7 +23,9 @@ export const handleUserLogin = async (user: User) => {
         name: user.displayName || "Anonymous",
         email: user.email,
         createdAt: new Date().toISOString(),
-        ingredients: [], // Empty list of ingredients for now
+        ingredients: [] as Ingredient[], // Empty list of ingredients for now
+        restaurants: [] as Restaurant[], // Empty list of restaurants for now
+        recipes: [] as Recipe[], // Empty list of recipes for now
       });
 
       console.log("User document created!");
@@ -70,3 +73,4 @@ export const addIngredient = async (userId: string, ingredient: string) => {
     console.error("Error adding ingredient:", error);
   }
 };
+
