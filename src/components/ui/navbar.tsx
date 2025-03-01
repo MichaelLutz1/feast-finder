@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
             <Link href="/InAndOutPage" className="text-sm font-medium hover:text-primary">
               In And Out
             </Link>
-            <Link href="#testimonials" className="text-sm font-medium hover:text-primary">
+            <Link href="/ProfilePage" className="text-sm font-medium hover:text-primary">
               Profile
             </Link>
           </nav>
