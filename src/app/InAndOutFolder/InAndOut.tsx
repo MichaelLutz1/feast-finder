@@ -1,7 +1,7 @@
 import React from "react"
 import { CookingPot } from 'lucide-react';
 import {Car} from 'lucide-react'
-const LandingPage = () => {
+const InAndOut = () => {
    return (
       <div className="min-h-screen bg-[#121212] text-white flex items-center justify-center">
       <div className="text-center mb-6">
@@ -39,5 +39,5 @@ const LandingPage = () => {
     </div>
    )
 }
-export default LandingPage
+export default InAndOut
 
