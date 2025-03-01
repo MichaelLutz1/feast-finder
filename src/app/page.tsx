@@ -27,7 +27,7 @@ export default function LandingPage() {
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
                   
                   <Button variant={"outline"} className="text-white" onClick={handleButtonClick}>
-                    Let's Feast!
+                    Let&apos;s Feast!
                   </Button>
                 </div>
               </div>
