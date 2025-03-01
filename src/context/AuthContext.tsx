@@ -1,5 +1,5 @@
 "use client";
-
+import { handleUserLogin } from "@/lib/firestore";
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { onAuthStateChanged, signOut, signInWithPopup, GoogleAuthProvider, User } from "firebase/auth";
 import { auth } from "@/lib/firebase";
@@ -23,6 +23,9 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setLoading(false);
+      if (user) {
+        handleUserLogin(user);
+      }
     });
 
     return () => unsubscribe();
