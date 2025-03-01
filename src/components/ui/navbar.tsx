@@ -13,10 +13,10 @@ const Navbar: React.FC = () => {
           </div>
           <nav className="hidden md:flex items-center gap-6 px-4">
             <Link href="#features" className="text-sm font-medium hover:text-primary">
-              Features
+              In And Out
             </Link>
             <Link href="#how-it-works" className="text-sm font-medium hover:text-primary">
-              How It Works
+              Profile
             </Link>
             <Link href="#testimonials" className="text-sm font-medium hover:text-primary">
               Testimonials
@@ -29,7 +29,6 @@ const Navbar: React.FC = () => {
             <Button variant="outline" size="sm">
               Log in
             </Button>
-            <Button size="sm">Sign up</Button>
           </div>
         </div>
       </header>
