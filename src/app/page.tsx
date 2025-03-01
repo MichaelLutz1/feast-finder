@@ -1,10 +1,14 @@
-
+"use client"
 import { Button } from "@/components/ui/button"
-import { Sparkles } from "lucide-react"
-
+import {useRouter} from "next/navigation"
 export default function LandingPage() {
+  const navigate = useRouter()
+
+  const handleButtonClick = () => {
+    navigate.push("/InAndOutPage")
+  }
   return (
-    <div className="bg-black flex min-h-screen flex-col px-4">
+    <div className="bg-[#121212] flex min-h-screen flex-col px-4">
       <main className="flex-1">
         {/* Hero Section */}
         <section className="py-12 md:py-24 lg:py-32 xl:py-48">
@@ -15,18 +19,15 @@ export default function LandingPage() {
                   <h1 className="text-white text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none">
                     Turn Your Ingredients Into Delicious Meals
                   </h1>
-                  <p className="max-w-[600px] text-white text-muted-foreground md:text-xl">
-                    FoodFinder AI transforms your available ingredients into creative recipes and suggests local
+                  <p className="max-w-[600px] text-white md:text-xl">
+                    FeastFinder AI transforms your available ingredients into creative recipes and suggests local
                     restaurants when you&apos;d rather eat out.
                   </p>
                 </div>
                 <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                  <Button size="lg" className="text-white gap-1">
-                    <Sparkles className="h-4 w-4" />
-                    Get Started Free
-                  </Button>
-                  <Button variant="outline" size="lg" className="text-white">
-                    See How It Works
+                  
+                  <Button variant={"outline"} className="text-white" onClick={handleButtonClick}>
+                    Let's Feast!
                   </Button>
                 </div>
               </div>
