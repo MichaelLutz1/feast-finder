@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { ChefHat, MapPin, Search, Utensils, Clock, ThumbsUp, Sparkles } from "lucide-react"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { ChefHat, MapPin, Utensils, ThumbsUp, Sparkles } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 
