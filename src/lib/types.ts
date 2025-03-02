@@ -8,7 +8,7 @@ export interface Recipe{
   ingredients: Ingredient[];
   description: string;
   link: string;
-  imageSrc: string;
+  imageUrl: string;
 }
 
 export interface Restaurant{
