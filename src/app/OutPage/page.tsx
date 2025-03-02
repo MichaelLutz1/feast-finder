@@ -1,5 +1,4 @@
 import React from "react";
-import { CookingPot } from 'lucide-react';
 import Restaurant from "@/components/restaurant";
 
 
