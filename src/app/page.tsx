@@ -28,7 +28,9 @@ export default function LandingPage() {
 
   const imagePaths = [
     "/Images/image1.png",
-    "/Images/image2.png"
+    "/Images/image2.png",
+    "/Images/image3.png",
+    "/Images/image4.png"
   ];
 
   return (

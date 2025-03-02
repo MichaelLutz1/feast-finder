@@ -13,13 +13,7 @@ import { useAtom } from "jotai"
 import { IngredientInventoryAtom } from "../ingredients/components/atoms"
 
 
-const recipes = [
-  { name: "Tomato Soup" },
-  { name: "Cucumber Salad" },
-  { name: "Carrot Cake" },
-  { name: "Onion Rings" },
-  { name: "Lettuce Wraps" },
-]
+
 
 const Profile = () => {
   const { user } = useAuth()
@@ -51,30 +45,14 @@ const Profile = () => {
       )
     }
 
-    if (selectedTab === "Recipes") {
-      return (
-        <Table>
-          <TableHeader>
-            <TableRow>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {recipes.map((recipe, index) => (
-              <TableRow key={index}>
-                <TableCell>{recipe.name}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      )
-    }
+    
 
     return null
   }
 
   return (
     <div className="flex items-center justify-center flex-col  w-full min-h-screen bg-[#121212]">
-      <div className="text-white flex flex-col items-center">
+      <div className="text-white flex flex-col items-center pt-[12vh]">
         <Avatar className="mb-4 size-[15vh]">
           <AvatarImage src={user?.photoURL || ''} alt="user image" />
           <AvatarFallback>
@@ -93,15 +71,6 @@ const Profile = () => {
               onClick={() => handleTabClick("Ingredients")}
             >
               Ingredients
-            </a>
-          </li>
-          <li className="w-full flex justify-center">
-            <a
-              href="#"
-              className={`justify-center inline-flex items-center px-3 py-3 rounded-lg w-full  ${selectedTab === "Recipes" ? "bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white" : "bg-gray-50 hover:bg-gray-100"}`}
-              onClick={() => handleTabClick("Recipes")}
-            >
-              Recipes
             </a>
           </li>
         </ul>
