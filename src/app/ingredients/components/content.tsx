@@ -1,23 +1,18 @@
 import { useAtom } from "jotai";
-import getStroke from "perfect-freehand";
 import { useState, useRef, useMemo, useCallback } from "react";
 import {
   ImageSrcAtom,
   BoundingBoxes2DAtom,
-  DetectTypeAtom,
-  LinesAtom,
+  BoxesShownAtom,
 } from "./atoms";
-import { getSvgPathFromStroke } from "./utils";
-import { lineOptions } from "./consts";
 import { ResizePayload, useResizeDetector } from "react-resize-detector";
 
 export function Content() {
   const [imageSrc] = useAtom(ImageSrcAtom);
   const [boundingBoxes2D] = useAtom(BoundingBoxes2DAtom);
 
+  const [boxesShown,] = useAtom(BoxesShownAtom)
 
-  const [detectType] = useAtom(DetectTypeAtom);
-  const [lines, ] = useAtom(LinesAtom);
 
   // Handling resize and aspect ratios
   const boundingBoxContainerRef = useRef<HTMLDivElement | null>(null);
@@ -86,34 +81,7 @@ export function Content() {
           height: boundingBoxContainer.height,
         }}
       >
-        {lines.length > 0 && (
-          <svg
-            className="absolute top-0 left-0 w-full h-full"
-            style={{
-              pointerEvents: "none",
-              width: boundingBoxContainer?.width,
-              height: boundingBoxContainer?.height,
-            }}
-          >
-            {lines.map(([points, color], i) => (
-              <path
-                key={i}
-                d={getSvgPathFromStroke(
-                  getStroke(
-                    points.map(([x, y]) => [
-                      x * boundingBoxContainer!.width,
-                      y * boundingBoxContainer!.height,
-                      0.5,
-                    ]),
-                    lineOptions,
-                  ),
-                )}
-                fill={color}
-              />
-            ))}
-          </svg>
-        )}
-        {detectType === "2D bounding boxes" &&
+        {boxesShown &&
           boundingBoxes2D.map((box, i) => (
             <div
               key={i}

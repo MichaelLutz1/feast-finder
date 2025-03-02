@@ -41,3 +41,5 @@ export const ScannedIngredientsAtom = atom<Ingredient[]>([]);
 export const IngredientInventoryAtom = atom<Ingredient[]>([]);
 
 export const RecipeAtom = atom<Recipe[]>([]);
+
+export const BoxesShownAtom = atom<boolean>(true)
