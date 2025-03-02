@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
               Home
             </Link>
             <Link href="/InAndOutPage" className="text-sm font-medium hover:text-primary " onClick={handleRestrictedClick}>
-                In And Out
+                Find
             </Link>
             
             <Link href="/ProfilePage" className="text-sm font-medium hover:text-primary" onClick={handleRestrictedClick}>
