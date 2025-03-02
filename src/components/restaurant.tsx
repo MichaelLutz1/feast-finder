@@ -9,17 +9,12 @@ type PriceRange = {
 const Restaurant = () => {
     /*const ratings: string[] = ["bad","ok","good","great","amazing"];
     const types: string[] = ["Breakfast","Brunch","Lunch","Dinner"];*/
-    const [name, setName] = useState<string>("Restaurant 1");
+    const [name,] = useState<string>("Restaurant 1");
     /*The following uses of the functions are just to pass the linter checks*/
-    setName("Restaraunt 1");
-    const [rating, setRating] = useState<string>("good");
-    setRating("good");
-    const [type, setType] = useState<string>("Lunch")
-    setType("Lunch");
-    const [range, setRange] = useState<PriceRange>({min: 10,max:20});
-    setRange({min: 10, max: 20});
-    const [averageRating, setAverageRating] = useState<string>("4")
-    setAverageRating("4");
+    const [rating,] = useState<string>("good");
+    const [type,] = useState<string>("Lunch")
+    const [range,] = useState<PriceRange>({min: 10,max:20});
+    const [averageRating,] = useState<string>("4")
 
     return (
         <div>

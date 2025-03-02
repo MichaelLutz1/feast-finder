@@ -1,6 +1,6 @@
 import React from "react";
-import Restaurant from "@/components/restaurant";
 
+import Restaurant from "@/components/restaurant";
 
 const OutPage = () => {
     return (
