@@ -4,7 +4,7 @@ import React, { useState } from "react";
 const InPage = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
 
-    const toggleDropDown = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const toggleDropDown = () => {
         setIsOpen(!isOpen)
     };
     return (
