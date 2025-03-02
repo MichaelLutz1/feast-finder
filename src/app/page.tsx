@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "@/components/ui/button"
+import Image from "next/image"
 import {useRouter} from "next/navigation"
 import { useAuth } from "@/context/AuthContext"
 import { Card, CardContent } from "@/components/ui/card"
@@ -68,16 +69,19 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex flex-col justify-center space-y-4">
-                <Carousel className="w-[35vw] ml-[12vw] text-white">
+                <Carousel className="w-[35vw] ml-[9vw] text-white">
                   <CarouselContent>
                     {imagePaths.map((imagePath, index) => (
                       <CarouselItem key={index}>
                         <div className="p-1">
                           <Card>
                             <CardContent className="flex aspect-square items-center justify-center p-6">
-                              <img
-                                src={imagePath}
-                                className="object-cover w-full "
+                              <Image
+                                src={imagePath} // Make sure this is a valid URL or path
+                                alt={`Image ${index}`} // Required alt attribute for accessibility
+                                className="object-cover w-full"
+                                width={300} // Optional, but recommended for better performance
+                                height={300}
                               />
                             </CardContent>
                           </Card>
