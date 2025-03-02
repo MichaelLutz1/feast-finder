@@ -81,7 +81,6 @@ const Profile = () => {
 
   return (
     <div className="flex items-center justify-center flex-col  w-full min-h-screen bg-[#121212]">
-      <h1 className="text-2xl text-white font-bold mb-4">Profile Page</h1>
       <div className="text-white flex flex-col items-center">
         <Avatar className="mb-4 size-[15vh]">
           <AvatarImage src={user?.photoURL || ''} alt="user image" />
