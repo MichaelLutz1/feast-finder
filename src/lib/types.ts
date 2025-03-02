@@ -1,6 +1,8 @@
 
 export interface Ingredient {
   name: string;
+  description: string;
+  type: string;
 }
 
 export interface Recipe {
@@ -22,3 +24,4 @@ export interface RestaurantType {
   };
   link: string;
 }
+
