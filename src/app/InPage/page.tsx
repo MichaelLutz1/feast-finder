@@ -18,13 +18,13 @@ const InPage = () => {
         </div>
         <div className="text-white grid grid-cols-1 lg:grid-cols-12 ml-15 gap-8 p-4">
             <div className="col-span-12 lg:col-span-4 max-w-sm p-6">
-                <h1 className="text-2xl mb-2">
+                <h1 className="text-xl mb-2">
                     Browse your saved ingredients
                 </h1>
                 <p>Go through your inventory and pick whatever you think will form a delicious meal!</p>
 
                 <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" className="text-white mt-15 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button" onClick={toggleDropDown}>View My Ingredients<svg className="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                <path stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 1 4 4 4-4"/>
                 </svg>
                 </button>
 
