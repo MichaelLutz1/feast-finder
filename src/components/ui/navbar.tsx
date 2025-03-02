@@ -23,7 +23,7 @@ const Navbar: React.FC = () => {
               Home
             </Link>
             <Link href="/InAndOutPage" className="text-sm font-medium hover:text-primary">
-              In And Out
+              In Or Out
             </Link>
             <Link href="/ProfilePage" className="text-sm font-medium hover:text-primary">
               Profile
