@@ -1,3 +1,5 @@
+import { Ingredient } from "@/lib/types";
+
 export type DetectTypes = "2D bounding boxes";
 
 export type BoundingBox2DType = {
@@ -6,5 +8,6 @@ export type BoundingBox2DType = {
   width: number;
   height: number;
   label: string;
+  ingredient: Ingredient
 };
 

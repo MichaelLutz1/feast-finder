@@ -145,6 +145,7 @@ export function IngredientScanner() {
             width: (xmax - xmin) / 1000,
             height: (ymax - ymin) / 1000,
             label: box.ingredient.name,
+            ingredient: box.ingredient
           };
         },
       );
