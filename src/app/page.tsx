@@ -63,7 +63,7 @@ export default function LandingPage() {
                         <div className="p-1">
                           <Card>
                             <CardContent className="flex aspect-square items-center justify-center p-6">
-                              <Image
+                              <img
                                 src={imagePath}
                                 alt="preview of our app"
                                 className="object-cover w-full "
