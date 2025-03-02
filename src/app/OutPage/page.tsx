@@ -9,13 +9,13 @@ const OutPage = () => {
             <div className="w-full text-center mt-12">
                 <h1 className="text-white text-5xl font-bold text-center">
                     <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
-                    Find a nearby Restaurant you'll love.
+                    Find a nearby Restaurant you&apos;ll love.
                     </span>
                 </h1>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-12 ml-4 gap-8 p-4">
                 <div className="col-span-12 lg:col-span-6 flex flex-col items-center justify-center text-white text-3xl mt-12">
-                <h1 className="text-center mb-4">Restaurants you've liked.</h1>
+                <h1 className="text-center mb-4">Restaurants you&apos;ve liked.</h1>
                 <Restaurant></Restaurant>
                 </div>
                 <div className="col-span-12 lg:col-span-6 flex flex-col items-center justify-center text-white text-3xl mt-12">

@@ -13,7 +13,7 @@ const InPage = () => {
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-12 ml-4 gap-8 p-4">
             <div className="col-span-12 lg:col-span-6 flex flex-col items-center justify-center text-white text-3xl mt-12">
-            <h1 className="text-center mb-4">Restaurants you've liked.</h1>
+            <h1 className="text-center mb-4">Enter some ingredients you have lying around.</h1>
             <Restaurant></Restaurant>
             </div>
             <div className="col-span-12 lg:col-span-6 flex flex-col items-center justify-center text-white text-3xl mt-12">
