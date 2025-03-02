@@ -1,12 +1,14 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import { Ingredient } from "./types";
+import { Ingredient, Recipe } from "./types";
 
 const promptFormat = {
-  name: "name of the recipe",
-  ingredients: "ingredients",
-  instructions: "instructions",
-  time: "time in minutes",
-  link: "link"
+  name: "name of the recipe as a string",
+  ingredients: "ingredients as an array of strings",
+  instructions: "instructions as an array of strings",
+  prepTime: "time to prepare in minutes as a number",
+  cookTime: "time to cook in minutes as a number",
+  link: "link",
+  description: "breif description of dish as a string"
 }
 
 export const generatePrompt = (ingredients: Ingredient[]) => {
@@ -26,6 +28,5 @@ export async function generateRecipes(ingredients: Ingredient[]) {
   }
   const recipe = JSON.parse(response);
   console.log(recipe);
-  return recipe;
-
+  return recipe as Recipe[];
 }

@@ -6,6 +6,7 @@ import {
 } from "@/app/ingredients/components/consts";
 import { BoundingBox2DType, DetectTypes } from "@/app/ingredients/components/Types";
 import { Ingredient } from "@/lib/types";
+import { Recipe } from "@/lib/types";
 
 export const ImageSrcAtom = atom<string | null>("");
 
@@ -38,3 +39,5 @@ export const IsUploadedImageAtom = atom(false);
 export const ScannedIngredientsAtom = atom<Ingredient[]>([]);
 
 export const IngredientInventoryAtom = atom<Ingredient[]>([]);
+
+export const RecipeAtom = atom<Recipe[]>([]);
