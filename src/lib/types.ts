@@ -7,10 +7,12 @@ export interface Ingredient {
 
 export interface Recipe {
   name: string;
-  ingredients: Ingredient[];
+  ingredients: string[];
+  instructions: string[];
   description: string;
   link: string;
-  imageUrl: string;
+  prepTime: number;
+  cookTime: number
 }
 
 export interface RestaurantType {

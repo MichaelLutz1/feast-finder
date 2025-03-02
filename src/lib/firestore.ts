@@ -90,3 +90,28 @@ export const addIngredients = async (user: User | null, ingredients: Ingredient[
   }
 };
 
+
+export const removeIngredient = async (user: User | null, ingredientToRemove: Ingredient) => {
+  if (!user) return;
+  try {
+    const userRef = doc(db, "users", user.uid);
+
+    // Fetch the user's current ingredients
+    const userSnap = await getDoc(userRef);
+    if (!userSnap.exists()) return;
+
+    const existingIngredients = userSnap.data().ingredients || [];
+
+    // Filter out the ingredient to remove
+    const updatedIngredients = existingIngredients.filter(
+      (ingredient: Ingredient) => ingredient.name !== ingredientToRemove.name
+    );
+
+    // Update Firestore with the new list
+    await updateDoc(userRef, { ingredients: updatedIngredients });
+
+    console.log("Ingredient removed!");
+  } catch (error) {
+    console.error("Error removing ingredient:", error);
+  }
+};

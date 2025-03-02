@@ -8,7 +8,7 @@ import { Nut, Hop, Apple, Beef, Fish, LeafyGreen, Milk, Wheat, CupSoda, CookingP
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Card, CardContent } from "@/components/ui/card"
 import { useAtom } from 'jotai'
-import { IngredientInventoryAtom } from './atoms'
+import { IngredientInventoryAtom, RecipeAtom } from './atoms'
 import IngredientItem from './IngredientItem'
 import { Button } from "@/components/ui/button";
 import { generateRecipes } from '@/lib/generate-recipes'
@@ -30,7 +30,9 @@ const iconMap: Record<string, React.JSX.Element> = {
 export const IngredientInventory = () => {
   const [ingredients, setIngredients] = useAtom<Ingredient[]>(IngredientInventoryAtom);
   const [selectedIngredients, setSelectedIngredients] = useState<Record<number, boolean>>({});
+  const [, setRecipes] = useAtom(RecipeAtom)
   const [loading, setLoading] = useState<boolean>(false)
+  const [remove, setRemove] = useState<boolean>(false)
   const user = useAuth().user;
   useEffect(() => {
     // Fetch ingredients from Firestore
@@ -55,8 +57,8 @@ export const IngredientInventory = () => {
     const selectedItems = ingredients.filter((_, index) => selectedIngredients[index]);
     setLoading(true)
     try {
-      const recipes = await generateRecipes(selectedItems)
-      console.log(recipes)
+      const recipesResponse = await generateRecipes(selectedItems)
+      setRecipes([...recipesResponse])
     } catch (e) {
       console.log(e)
     }
@@ -77,12 +79,14 @@ export const IngredientInventory = () => {
           <div className="space-y-4">
             {ingredients.map((ingredient, index) => (
               <IngredientItem
+                ingredient={ingredient}
                 key={index}
                 icon={iconMap[ingredient.type]}
                 name={ingredient.name}
                 description={ingredient.description}
                 checked={!!selectedIngredients[index]}
                 toggleSelection={() => toggleSelection(index)}
+                remove={remove}
               />
             ))}
           </div>
@@ -92,6 +96,7 @@ export const IngredientInventory = () => {
           Generate Recipes</Button>
         <Button className="border mt-3 ml-5" onClick={handleSelectAll}>Select All</Button>
         <Button className="border mt-3 ml-5" onClick={handleDeselectAll}>Deselect All</Button>
+        <Button className="border mt-3 ml-5" onClick={() => setRemove(!remove)}>{remove ? "Add" : "Remove"}</Button>
       </CardContent>
     </Card>
   )
