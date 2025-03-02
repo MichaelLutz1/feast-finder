@@ -13,7 +13,7 @@ import {
 
 export default function LandingPage() {
   const navigate = useRouter()
-  const { user, loginWithGoogle, logout } = useAuth()
+  const { user, loginWithGoogle} = useAuth()
 
   const handleButtonClick = () => {
     if(!user){
@@ -24,6 +24,12 @@ export default function LandingPage() {
     }
     
   }
+
+  const imagePaths = [
+    "/Images/image1.png",
+    "/Images/image2.png"
+  ];
+
   return (
     <div className="bg-[#121212] flex min-h-screen flex-col px-4">
       <main className="flex-1">
@@ -49,14 +55,17 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex flex-col justify-center space-y-4">
-                <Carousel className="w-full max-w-xs ml-[15vw] text-white">
+                <Carousel className="w-full max-w[600px] ml-[12vw] text-white">
                   <CarouselContent>
-                    {Array.from({ length: 5 }).map((_, index) => (
+                    {imagePaths.map((imagePath, index) => (
                       <CarouselItem key={index}>
                         <div className="p-1">
                           <Card>
                             <CardContent className="flex aspect-square items-center justify-center p-6">
-                              <span className="text-4xl font-semibold">{index + 1}</span>
+                              <img
+                                src={imagePath}
+                                className="object-cover w-full "
+                              />
                             </CardContent>
                           </Card>
                         </div>
