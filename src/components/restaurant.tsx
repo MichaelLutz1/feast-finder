@@ -7,8 +7,8 @@ type PriceRange = {
   };
 
 const Restaurant = () => {
-    const ratings: string[] = ["bad","ok","good","great","amazing"];
-    const types: string[] = ["Breakfast","Brunch","Lunch","Dinner"];
+    /*const ratings: string[] = ["bad","ok","good","great","amazing"];
+    const types: string[] = ["Breakfast","Brunch","Lunch","Dinner"];*/
     const [name, setName] = useState<string>("Restaurant 1");
     /*The following uses of the functions are just to pass the linter checks*/
     setName("Restaraunt 1");
