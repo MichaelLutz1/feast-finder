@@ -12,13 +12,6 @@ import {
 import { useAtom } from "jotai"
 import { IngredientInventoryAtom } from "../ingredients/components/atoms"
 
-const ingredients = [
-  { item: "Tomato" },
-  { item: "Cucumber" },
-  { item: "Carrot" },
-  { item: "Onion" },
-  { item: "Lettuce" },
-]
 
 const recipes = [
   { name: "Tomato Soup" },

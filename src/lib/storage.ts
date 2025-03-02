@@ -1,10 +1,10 @@
-import { getDownloadURL, ref, uploadBytesResumable, UploadTaskSnapshot } from "firebase/storage";
+import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import { storage } from "@/lib/firebase";
 
 // ... (Firebase initialization from previous step) ...
 
 //Upload a file
-function uploadFile(file: File) {
+export function uploadFile(file: File) {
   const storageRef = ref(storage, `images/${file.name}`); // Creates a unique path
 
   const uploadTask = uploadBytesResumable(storageRef, file);
@@ -39,7 +39,7 @@ function uploadFile(file: File) {
 }
 
 //Download a file
-async function downloadFile(path: string) {
+export async function downloadFile(path: string) {
   const storageRef = ref(storage, path);
   try {
     const url = await getDownloadURL(storageRef);

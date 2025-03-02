@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import Image from "next/image";
 
 export default function LandingPage() {
   const navigate = useRouter()
@@ -62,8 +63,9 @@ export default function LandingPage() {
                         <div className="p-1">
                           <Card>
                             <CardContent className="flex aspect-square items-center justify-center p-6">
-                              <img
+                              <Image
                                 src={imagePath}
+                                alt="preview of our app"
                                 className="object-cover w-full "
                               />
                             </CardContent>
