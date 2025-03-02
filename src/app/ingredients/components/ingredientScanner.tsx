@@ -18,7 +18,8 @@ import {
   LinesAtom,
   ImageSrcAtom,
   IsUploadedImageAtom,
-  ScannedIngredientsAtom
+  ScannedIngredientsAtom,
+  BoxesShownAtom
 } from "./atoms";
 import { lineOptions } from "./consts";
 import { getSvgPathFromStroke, loadImage } from "./utils";
@@ -40,6 +41,7 @@ export function IngredientScanner() {
   const [scannedIngredients, setScannedIngredients] = useAtom(ScannedIngredientsAtom);
 
 
+  const [boxesShown, setBoxesShown] = useAtom(BoxesShownAtom)
   const [, setBoundingBoxes2D] = useAtom(BoundingBoxes2DAtom);
   const [detectType] = useAtom(DetectTypeAtom);
   const [modelSelected] = useAtom(ModelSelectedAtom);
@@ -225,6 +227,7 @@ export function IngredientScanner() {
                       }}>
                         Try Another Image
                       </Button>
+                      <Button variant='outline' onClick={() => setBoxesShown(!boxesShown)}>Toggle Boxes</Button>
                     </div>
                   </div>
                 )}
