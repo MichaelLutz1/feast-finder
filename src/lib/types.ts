@@ -1,19 +1,27 @@
 
-export interface Ingredient{
+export interface Ingredient {
   name: string;
+  description: string;
+  type: string;
 }
 
-export interface Recipe{
+export interface Recipe {
   name: string;
   ingredients: Ingredient[];
   description: string;
   link: string;
-  imageSrc: string;
+  imageUrl: string;
 }
 
-export interface Restaurant{
+export interface RestaurantType {
   name: string;
   location: string;
   description: string;
+  starRating: number;
+  priceRange: {
+    min: number;
+    max: number;
+  };
   link: string;
 }
+
