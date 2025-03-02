@@ -32,7 +32,7 @@ const Navbar: React.FC = () => {
             <Link href="/" className="text-sm font-medium hover:text-primary">
               Home
             </Link>
-            <Link href="/InAndOutPage" className="text-sm font-medium hover:text-primary">
+            <Link href="/InAndOutPage" className="text-sm font-medium hover:text-primary" onClick={handleRestrictedClick}>
               In Or Out
             </Link>
             
