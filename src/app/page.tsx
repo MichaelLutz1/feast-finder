@@ -55,7 +55,7 @@ export default function LandingPage() {
                 </div>
               </div>
               <div className="flex flex-col justify-center space-y-4">
-                <Carousel className="w-full max-w[600px] ml-[12vw] text-white">
+                <Carousel className="w-[35vw] ml-[12vw] text-white">
                   <CarouselContent>
                     {imagePaths.map((imagePath, index) => (
                       <CarouselItem key={index}>
