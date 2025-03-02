@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Utensils, Upload, Camera } from "lucide-react";
 import { useResetState } from "./hooks";
+import { toast } from "sonner"
 
 
 import { useAtom } from "jotai";
@@ -129,6 +130,7 @@ export function IngredientScanner() {
       parsedResponse = JSON.parse(response);
     } catch (e) {
       console.error(e);
+      toast("Error Processing your request. Please Try Again.")
       return;
     }
     if (detectType === "2D bounding boxes") {
@@ -215,16 +217,13 @@ export function IngredientScanner() {
                   </div>
                 ) : (
                   <div className="space-y-4">
-                    <div className="flex justify-between pt-4">
+                    <div className="flex gap-8 justify-between pt-4">
                       <Button variant="outline" onClick={() => {
                         setIngredients([]);
                         setScannedIngredients([]);
                         resetState();
                       }}>
                         Try Another Image
-                      </Button>
-                      <Button variant='outline'>
-                        Find Recipes
                       </Button>
                     </div>
                   </div>

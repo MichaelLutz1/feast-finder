@@ -36,3 +36,5 @@ export const IsUploadedImageAtom = atom(false);
 
 
 export const ScannedIngredientsAtom = atom<Ingredient[]>([]);
+
+export const IngredientInventoryAtom = atom<Ingredient[]>([]);

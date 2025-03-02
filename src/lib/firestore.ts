@@ -1,7 +1,7 @@
 import { User } from "firebase/auth";
 import { db } from "./firebase";
 import { doc, setDoc, getDoc, updateDoc, arrayUnion } from "firebase/firestore";
-import { Restaurant, Recipe, Ingredient } from "@/lib/types";
+import { RestaurantType, Recipe, Ingredient } from "@/lib/types";
 
 
 /**
@@ -24,7 +24,7 @@ export const handleUserLogin = async (user: User) => {
         email: user.email,
         createdAt: new Date().toISOString(),
         ingredients: [] as Ingredient[], // Empty list of ingredients for now
-        restaurants: [] as Restaurant[], // Empty list of restaurants for now
+        restaurants: [] as RestaurantType[], // Empty list of restaurants for now
         recipes: [] as Recipe[], // Empty list of recipes for now
       });
 
@@ -37,7 +37,7 @@ export const handleUserLogin = async (user: User) => {
   }
 };
 
-export const saveIngredients = async (user: User, ingredients: string[]) => {
+export const saveIngredients = async (user: User, ingredients: Ingredient[]) => {
   try {
     const userRef = doc(db, "users", user.uid);
     await setDoc(userRef, { ingredients }, { merge: true });
@@ -52,7 +52,7 @@ export const getIngredients = async (user: User) => {
     const userRef = doc(db, "users", user.uid);
     const docSnap = await getDoc(userRef);
     if (docSnap.exists()) {
-      return docSnap.data().ingredients || [];
+      return docSnap.data().ingredients as Ingredient[] || [];
     } else {
       return [];
     }
@@ -62,13 +62,29 @@ export const getIngredients = async (user: User) => {
   }
 };
 
-export const addIngredient = async (userId: string, ingredient: string) => {
+export const addIngredients = async (user: User | null, ingredients: Ingredient[]) => {
+  if (!user) return;
   try {
-    const userRef = doc(db, "users", userId);
-    await updateDoc(userRef, {
-      ingredients: arrayUnion(ingredient),
-    });
-    console.log("Ingredient added!");
+    const userRef = doc(db, "users", user.uid);
+
+    // Fetch existing ingredients from Firestore
+    const userSnap = await getDoc(userRef);
+    const existingIngredients = userSnap.exists() ? userSnap.data().ingredients || [] : [];
+
+    // Filter out ingredients that are already in the user's list
+    const newIngredients = ingredients.filter(
+      (ingredient) => !existingIngredients.some((existing: Ingredient) => existing.name === ingredient.name)
+    );
+
+    if (newIngredients.length > 0) {
+      // Update Firestore only if there are new ingredients
+      await updateDoc(userRef, {
+        ingredients: arrayUnion(...newIngredients),
+      });
+      console.log("Ingredient(s) added!");
+    } else {
+      console.log("No new ingredients to add.");
+    }
   } catch (error) {
     console.error("Error adding ingredient:", error);
   }

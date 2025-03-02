@@ -17,7 +17,7 @@ export const generatePrompt = (ingredients: Ingredient[]) => {
 
 export async function generateRecipes(ingredients: Ingredient[]) {
   const prompt = generatePrompt(ingredients);
-  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMENI_API_KEY!);
+  const genAI = new GoogleGenerativeAI(process.env.NEXT_PUBLIC_GEMINI_API_KEY!);
   const model = genAI.getGenerativeModel({ model: "models/gemini-2.0-flash-exp" }, { apiVersion: "v1beta" });
   const result = await model.generateContent(prompt);
   let response = result.response.text();

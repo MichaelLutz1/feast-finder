@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
           <div className="flex items-center gap-4">
             {user ? (
               <>
-                <Button onClick={() => logout()} size="sm">Sign out</Button>
+                <Button variant='outline' onClick={() => logout()} size="sm">Sign out</Button>
                 <Avatar>
                   <AvatarImage src={user.photoURL || ''} alt="user image" />
                   <AvatarFallback>{user.displayName ? user.displayName[0] : ''}</AvatarFallback>

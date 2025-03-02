@@ -9,6 +9,8 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table"
+import { useAtom } from "jotai"
+import { IngredientInventoryAtom } from "../ingredients/components/atoms"
 
 const ingredients = [
   { item: "Tomato" },
@@ -29,6 +31,7 @@ const recipes = [
 const Profile = () => {
   const { user } = useAuth()
   const [selectedTab, setSelectedTab] = useState("Ingredients")
+  const [inventory, ] = useAtom(IngredientInventoryAtom)
 
   const handleTabClick = (tab: React.SetStateAction<string>) => {
     setSelectedTab(tab)
@@ -43,9 +46,11 @@ const Profile = () => {
             </TableRow>
           </TableHeader>
           <TableBody>
-            {ingredients.map((ingredient, index) => (
+            {inventory.map((ingredient, index) => (
               <TableRow key={index}>
-                <TableCell>{ingredient.item}</TableCell>
+                <TableCell>{ingredient.name}</TableCell>
+                <TableCell></TableCell>
+                <TableCell>{ingredient.type}</TableCell>
               </TableRow>
             ))}
           </TableBody>
