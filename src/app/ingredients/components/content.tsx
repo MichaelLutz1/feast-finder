@@ -7,6 +7,20 @@ import {
 } from "./atoms";
 import { ResizePayload, useResizeDetector } from "react-resize-detector";
 
+const boxColorMap: Record<string, string> = {
+  fruit: "#FF4D4D",      // Red
+  vegetable: "#4CAF50",  // Green
+  meat: "#D32F2F",       // Dark Red
+  dairy: "#FFC0CB",      // Pink
+  grain: "#A67C00",      // Brownish Yellow
+  spice: "#8B4513",      // Dark Brown
+  seafood: "#1E88E5",    // Blue
+  condiment: "#708090",  // Slate Gray
+  nut: "#D2B48C",        // Tan
+  beverage: "#00BFFF",   // Light Blue
+  other: "#808080",      // Gray
+};
+
 export function Content() {
   const [imageSrc] = useAtom(ImageSrcAtom);
   const [boundingBoxes2D] = useAtom(BoundingBoxes2DAtom);
@@ -82,23 +96,29 @@ export function Content() {
         }}
       >
         {boxesShown &&
-          boundingBoxes2D.map((box, i) => (
-            <div
-              key={i}
-              className={`absolute bbox border-2 border-[#3B68FF] `}
-              style={{
-                transformOrigin: "0 0",
-                top: box.y * 100 + "%",
-                left: box.x * 100 + "%",
-                width: box.width * 100 + "%",
-                height: box.height * 100 + "%",
-              }}
-            >
-              <div className="bg-[#3B68FF] text-white absolute left-0 top-0 text-sm px-1">
-                {box.label}
+          boundingBoxes2D.map((box, i) => {
+            const color = boxColorMap[box.ingredient.type]
+            console.log(color)
+
+            return (
+              <div
+                key={i}
+                className={`absolute bbox border-2`}
+                style={{
+                  borderColor: color,
+                  transformOrigin: "0 0",
+                  top: box.y * 100 + "%",
+                  left: box.x * 100 + "%",
+                  width: box.width * 100 + "%",
+                  height: box.height * 100 + "%",
+                }}
+              >
+                <div style={{ backgroundColor: color }} className="text-white absolute left-0 top-0 text-sm px-1">
+                  {box.label}
+                </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
       </div>
     </div>
   );
