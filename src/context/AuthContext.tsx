@@ -31,7 +31,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     return () => unsubscribe();
   }, []);
   useEffect(() => {
-
     if (!loading && !user) {
       router.push("/");
     }
